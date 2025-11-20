@@ -1,0 +1,174 @@
+/* الألوان الرئيسية والمتغيرات */
+:root {
+  --main-blue: #4c7eff;
+  --main-purple: #6c63ff;
+  --soft-light-blue: #f3f9ff; /* لون الخلفية الفاتح جدًا */
+  --text-color: #333;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --radius-md: 0.5rem; /* استخدام وحدات Bootstrap (8px) */
+  --radius-sm: 0.3rem; /* استخدام وحدات Bootstrap (5px) */
+}
+
+/* التنسيق العام للخلفية والخطوط */
+body {
+  font-family: "Poppins", sans-serif;
+  /* تطبيق linear-gradient ناعم جداً لخلفية موحدة */
+  background: linear-gradient(135deg, var(--soft-light-blue) 0%, #ffffff 100%);
+  color: var(--text-color);
+  padding-top: 70px; /* تعويض حجم الـ fixed header */
+}
+/* Hover Effect خاص بالصورة الأولى (أكبر تأثير) */
+.first-img {
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.first-img:hover {
+  transform: translateY(-10px) scale(1.07) rotate(0.5deg);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* ملاحظة: الفئة .first-img مضافة للعنصر في ملف index.html */
+
+.logo i {
+  font-size: 30px;
+}
+
+.navbar-brand i {
+  color: var(--main-blue);
+}
+
+.logo-secondary i {
+  color: #ffb300;
+}
+
+/* ==================== قسم الهيرو (Hero) ==================== */
+.hero {
+  background: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+}
+
+.hero h1 {
+  color: #333;
+}
+
+.cta-btn {
+  /* linear gradient خفيف للأزرار */
+  background: linear-gradient(
+    45deg,
+    rgba(76, 126, 255, 0.8),
+    rgba(108, 99, 255, 0.8)
+  );
+  color: white !important; /* لضمان تجاوز التنسيق الافتراضي لـ Bootstrap */
+  border-radius: var(--radius-sm);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
+  border: none;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(76, 126, 255, 0.4);
+  opacity: 1;
+}
+
+.hero-img {
+  overflow: hidden;
+  /* Hero Image Size - تم تعديله ليكون متجاوباً في Bootstrap */
+  max-width: 100%;
+  max-height: 400px;
+}
+
+.hero-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ==================== الأقسام العامة ==================== */
+.section {
+  /* تم إزالة الأنيميشن من CSS الخاص بك لتجنب التعارض مع Bootstrap، يمكن إضافته بـ JS */
+  /* إذا أردت استعادة الأنيميشن، أزل هذا التعليق: */
+  /* opacity: 0; transform: translateY(20px); animation: fadeUp .8s forwards ease-out; */
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== قسم الصور والبطاقات ==================== */
+.img-card-container {
+  padding-bottom: 40px;
+}
+
+.img-card {
+  height: 200px; /* حجم موحد للصور */
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  /* لمنع ظهور ظل فوق الصور التي تمثل خلفية */
+  background-color: var(--soft-light-blue);
+}
+
+/* Hover Effect خاص بالصورة الأولى (أكبر تأثير) */
+.first-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important; /* ظل أوضح مع تجاوز لـ Bootstrap Shadow */
+}
+
+/* تأثير التمرير على باقي كروت الصور */
+.img-card:not(.first-img):hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ==================== قسم الخدمات والأسعار ==================== */
+.feature-box,
+.price-card {
+  background: white;
+  padding: 25px;
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-weight: 600;
+  color: #555;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.feature-box i {
+  margin-right: 5px;
+  color: var(--main-blue);
+}
+
+.feature-box:hover,
+.price-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important;
+}
+
+.price-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--main-blue);
+  margin-bottom: 10px;
+}
+
+.price-card p {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--main-purple);
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+/* ==================== الفوتر (Footer) ==================== */
+.footer {
+  /* linear gradient متناسق مع الخلفية */
+  background: linear-gradient(90deg, #e9f0f7, #cdd7e1);
+  color: #555;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
